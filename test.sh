@@ -27,8 +27,8 @@ echo $in
 h=`python3 <<END
 s = """$in"""
 
-start = s.find(": {") + len(": {")
-end = s.find("TED")
+start = s.find(""ciphertext": "") + len(""ciphertext": "")
+end = s.find("", "cipher")
 substring = s[start:end]
 print(substring)
 
