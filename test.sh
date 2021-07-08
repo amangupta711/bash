@@ -23,8 +23,5 @@ curl -s -X POST "https://cloudkms.googleapis.com/v1/projects/aaa-acg-poc/locatio
 in=`curl -s -X POST "https://cloudkms.googleapis.com/v1/projects/aaa-acg-poc/locations/us-central1/keyRings/snowkeyring/cryptoKeys/snowkmskey/cryptoKeyVersions/1:encrypt"  -d "{\"plaintext\":\"$output1\"}"  -H "Authorization:Bearer $(gcloud auth application-default print-access-token)"  -H "Content-Type:application/json"`
 
 echo $in
-echo "$in" | grep -o -P '(?<=ciphertext).*(?=ciphertextCrc32c)'
-
-
 
 echo "encrypted $input"
