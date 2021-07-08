@@ -28,8 +28,9 @@ cipher=`python3 <<END
 import re
 s = """$in"""
 subStr = re.findall(r'ciphertext": "(.+?)",',s)
-print (subStr)
-
+lst = subStr
+lst_str = str(lst)[2:-2] 
+print(lst_str)
 END`
 
 echo $cipher
