@@ -24,4 +24,7 @@ in=`curl -s -X POST "https://cloudkms.googleapis.com/v1/projects/aaa-acg-poc/loc
 
 echo $in
 
+echo "$in" | sed -e "s|.*"ciphertext": "\(.*\)"ciphertext": ".*|\1|"
+
+
 echo "encrypted $input"
