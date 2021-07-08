@@ -3,7 +3,7 @@ read input
 output=`python3 <<END
 import base64
 a=base64.b64encode(b'$input')
-print (a)
+#print (a)
 END`
 #echo $output
 
@@ -12,7 +12,7 @@ input1=$output
 output1=`python3 <<END
 b=$input1
 c=str(b,'utf-8')
-print (c)
+#print (c)
 
 END`
 
