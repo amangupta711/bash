@@ -18,9 +18,7 @@ END`
 
 echo $output1
 
-input3=curl -s -X POST "https://cloudkms.googleapis.com/v1/projects/aaa-acg-poc/locations/us-central1/keyRings/snowkeyring/cryptoKeys/snowkmskey/cryptoKeyVersions/1:encrypt"  -d "{\"plaintext\":\"$output1\"}"  -H "Authorization:Bearer $(gcloud auth application-default print-access-token)"  -H "Content-Type:application/json"
-
-echo "$input3" | sed -e "s|.*aaa\(.*\)poc.*|\1|"
+curl -s -X POST "https://cloudkms.googleapis.com/v1/projects/aaa-acg-poc/locations/us-central1/keyRings/snowkeyring/cryptoKeys/snowkmskey/cryptoKeyVersions/1:encrypt"  -d "{\"plaintext\":\"$output1\"}"  -H "Authorization:Bearer $(gcloud auth application-default print-access-token)"  -H "Content-Type:application/json"
 
 
 echo "encrypted $input"
