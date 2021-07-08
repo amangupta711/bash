@@ -27,7 +27,7 @@ echo $in
 h=`python3 <<END
 import re
 s = """$in"""
-subStr = re.findall(r'ciphertext": "(.+?)", "ciphertextCrc32c',s)
+subStr = re.findall(r'ciphertext": "(.+?)",',s)
 print (subStr)
 
 END`
