@@ -5,7 +5,7 @@ import base64
 a=base64.b64encode(b'$input')
 print (a)
 END`
-echo $output
+#echo $output
 
 
 input1=$output
@@ -16,7 +16,7 @@ print (c)
 
 END`
 
-echo $output1
+#echo $output1
 
 #curl -s -X POST "https://cloudkms.googleapis.com/v1/projects/aaa-acg-poc/locations/us-central1/keyRings/snowkeyring/cryptoKeys/snowkmskey/cryptoKeyVersions/1:encrypt"  -d "{\"plaintext\":\"$output1\"}"  -H "Authorization:Bearer $(gcloud auth application-default print-access-token)"  -H "Content-Type:application/json"
 
