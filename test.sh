@@ -25,13 +25,10 @@ in=`curl -s -X POST "https://cloudkms.googleapis.com/v1/projects/aaa-acg-poc/loc
 echo $in
 
 h=`python3 <<END
+import re
 s = """$in"""
-
-start = s.find(""ciphertext": "") + len(""ciphertext": "")
-end = s.find("", "cipher")
-substring = s[start:end]
-print(substring)
-print ($in);
+subStr = re.findall(r'ciphertext": "(.+?)", "ciphertextCrc32c',s)
+print (subStr)
 
 END`
 
