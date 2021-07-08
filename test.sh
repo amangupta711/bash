@@ -31,6 +31,7 @@ start = s.find(""ciphertext": "") + len(""ciphertext": "")
 end = s.find("", "cipher")
 substring = s[start:end]
 print(substring)
+print ($in);
 
 END`
 
