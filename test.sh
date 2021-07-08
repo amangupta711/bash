@@ -13,10 +13,14 @@ output1=`python3 <<END
 b=$input1
 c=str(b,'utf-8')
 print (c)
+
 END`
 
 echo $output1
 
-curl -s -X POST "https://cloudkms.googleapis.com/v1/projects/aaa-acg-poc/locations/us-central1/keyRings/snowkeyring/cryptoKeys/snowkmskey/cryptoKeyVersions/1:encrypt"  -d "{\"plaintext\":\"$output1\"}"  -H "Authorization:Bearer $(gcloud auth application-default print-access-token)"  -H "Content-Type:application/json"
+input3=curl -s -X POST "https://cloudkms.googleapis.com/v1/projects/aaa-acg-poc/locations/us-central1/keyRings/snowkeyring/cryptoKeys/snowkmskey/cryptoKeyVersions/1:encrypt"  -d "{\"plaintext\":\"$output1\"}"  -H "Authorization:Bearer $(gcloud auth application-default print-access-token)"  -H "Content-Type:application/json"
+
+echo "$input3" | sed -e "s|.*"ciphertext": "\(.*\)",.*|\1|"
+
 
 echo "encrypted $input"
