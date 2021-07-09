@@ -429,7 +429,7 @@ echo ""
 #schema
 #sourceFormat
 echo "encrypting sourceFormat"
-echo "csv or json"
+echo "csv or json or avro"
 read input
 output=`python3 <<END
 import base64
